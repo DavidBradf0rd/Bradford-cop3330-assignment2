@@ -24,16 +24,19 @@ public class ValidatingInputs
 
         validateInput(fn,ln,id,zip);
 
+
     }
-    public static void validateInput(String fn,String ln,String zip, String id){
+    public static Boolean validateInput(String fn, String ln, String zip, String id){
         boolean fname = validateFName(fn);
         boolean lname = validateLName(ln);
         boolean zipc = validateZip(zip);
         boolean emID = validateEmpID(id);
         if (fname || lname || zipc || emID){
             result = "There were no errors found.";
-        }
-        System.out.println(result);
+        } System.out.println("\n"+result);
+        return true;
+
+
     }
     public static boolean validateFName(String fn){
         boolean condition = true;

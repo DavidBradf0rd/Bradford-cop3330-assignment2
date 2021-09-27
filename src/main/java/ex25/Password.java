@@ -9,10 +9,10 @@ import java.util.*;
 
 
 
-public class Password
-{
-    public static void main( String[] args )
-    {
+public class Password {
+
+
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter your password: ");
         String pw = input.nextLine();
@@ -21,35 +21,29 @@ public class Password
     }
 
 
-    public static void passwordValidator(String pw){
+    public static String passwordValidator(String pw) {
         int l = pw.length();
-        boolean letter= false, num=false, specialChar=false;
+        boolean letter = false, num = false, specialChar = false;
 
 
-        for(char i:pw.toCharArray())
-        {
+        for (char i : pw.toCharArray()) {
             if (Character.isLetter(i))
                 letter = true;
             if (Character.isDigit(i))
                 num = true;
-            if (String.valueOf(i).matches("[^a-zA-Z0-9]")) {
+            if (String.valueOf(i).matches("[.*@#$%.!+_=]")) {
                 specialChar = true;
             }
         }
-        if (num && letter && specialChar && (l>=8))
-            System.out.print("The password '"+pw+"' is a very strong password.");
-        else if (letter  && num || (l>=8))
-            System.out.print("The password '"+pw+"' is a strong password.");
+        if (num && letter && specialChar && (l >= 8))
+            System.out.print("The password '" + pw + "' is a very strong password.");
+        else if (letter && num || (l >= 8))
+            System.out.print("The password '" + pw + "' is a strong password.");
         else if (letter)
-            System.out.print("The password '"+pw+"' is a weak password.");
+            System.out.print("The password '" + pw + "' is a weak password.");
         else
-            System.out.print("The password '"+pw+"' is a very weak password.");
-
+            System.out.print("The password '" + pw + "' is a very weak password.");
+        return pw;
     }
-
-
-
-
-
 
 }
